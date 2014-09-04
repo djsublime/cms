@@ -153,7 +153,12 @@ class Cms_User_Controller extends Cms_Base_Controller {
 
 			} else {
 
-				$user->details->delete();
+				$userDetail = CmsUserDetail::find($uid);
+
+				if(!empty($userDetail)){
+
+					$user->details->delete();
+				}
 
 				$user->delete();
 
